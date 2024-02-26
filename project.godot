@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Heart Platformer"
-run/main_scene="res://world.tscn"
+run/main_scene="res://level_one.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Events="*res://Events.gd"
+LevelTransition="*res://level_transition.tscn"
 
 [display]
 
@@ -63,6 +64,9 @@ ui_down={
 2d_render/layer_1="World"
 2d_render/layer_2="Player"
 2d_render/layer_3="Hazards"
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Hazards"
 
 [rendering]
 

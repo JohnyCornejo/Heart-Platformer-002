@@ -1,66 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://fc22v1nctx0w"]
+[gd_scene load_steps=5 format=3 uid="uid://fc22v1nctx0w"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_asonn"]
 [ext_resource type="PackedScene" uid="uid://b3vkmfxunohh8" path="res://player.tscn" id="2_oxow6"]
-[ext_resource type="PackedScene" uid="uid://6jsoqvcs8feb" path="res://spikes.tscn" id="3_oydky"]
-[ext_resource type="PackedScene" uid="uid://3pcgwyi4dc46" path="res://heart.tscn" id="4_xba5f"]
 [ext_resource type="PackedScene" uid="uid://dmpulyd0trxwg" path="res://level_completed.tscn" id="5_ji056"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lcok"]
-size = Vector2(26, 70)
+[ext_resource type="PackedScene" uid="uid://dbr66ydqgflu7" path="res://level_tile_map.tscn" id="6_s0y52"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_asonn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(0, 0, 16, 0, 16, 112, 40, 112, 72, 128, 96, 128, 112, 112, 128, 112, 128, 152, 152, 152, 152, 120, 152, 120, 184, 120, 184, 128, 208, 128, 232, 112, 256, 112, 256, 136, 288, 136, 288, 0, 320, 0, 320, 168, 320, 184, 0, 184)
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(244, 35)
-shape = SubResource("RectangleShape2D_5lcok")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
-offset_left = 231.0
-offset_right = 257.0
-offset_bottom = 70.0
-
 [node name="Player" parent="." instance=ExtResource("2_oxow6")]
-position = Vector2(33, 112)
-
-[node name="Spikes" parent="." instance=ExtResource("3_oydky")]
-position = Vector2(129, 152)
-
-[node name="Spikes2" parent="." instance=ExtResource("3_oydky")]
-position = Vector2(257, 136)
-
-[node name="Spikes3" parent="." instance=ExtResource("3_oydky")]
-position = Vector2(273, 136)
-
-[node name="Spikes4" parent="." instance=ExtResource("3_oydky")]
-position = Vector2(137, 152)
-
-[node name="Heart" parent="." instance=ExtResource("4_xba5f")]
-position = Vector2(120, 105)
-
-[node name="Heart2" parent="." instance=ExtResource("4_xba5f")]
-position = Vector2(283, 55)
-
-[node name="Heart3" parent="." instance=ExtResource("4_xba5f")]
-position = Vector2(262, 32)
-
-[node name="Heart4" parent="." instance=ExtResource("4_xba5f")]
-position = Vector2(306, -9)
-
-[node name="Heart5" parent="." instance=ExtResource("4_xba5f")]
-position = Vector2(26, 34)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_ji056")]
 visible = false
+
+[node name="LevelTileMap" parent="." instance=ExtResource("6_s0y52")]
